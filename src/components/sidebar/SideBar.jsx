@@ -6,7 +6,7 @@ const SideBar = ({ onChangeHeader }) => {
     {
       path: "/profile",
       titleLink: "プロファイル",
-      icon: "../../../dist/assets/svg/user.svg",
+      icon: "../../../svg/user.svg",
       iconHeader: "../../../assets/User_perspective_matte.png",
     },
     {
