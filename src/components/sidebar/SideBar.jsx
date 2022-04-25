@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { user, stick, color, ads, file, chart } from "../../svg/";
+import { user, clip, paint, ads, file, chart } from "../../svg";
 import * as assets from "../../assets";
 console.log(user);
 const SideBar = ({ onChangeHeader }) => {
@@ -15,14 +15,14 @@ const SideBar = ({ onChangeHeader }) => {
     {
       path: "/appended",
       titleLink: "添付",
-      icon: stick,
+      icon: clip,
       iconHeader: assets.clipImg,
       buttonHeader: true,
     },
     {
       path: "/settingUIBot",
       titleLink: "チャットボットUIの設定",
-      icon: color,
+      icon: paint,
       iconHeader: assets.paintImg,
     },
     {
