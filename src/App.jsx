@@ -10,12 +10,13 @@ import PostSetting from "./components/pages/PostSetting";
 import ScenarioSettings from "./components/pages/Homepage";
 import Header from "./components/layout/Header";
 import { useState } from "react";
+import { userImg } from "./assets/index";
 
 function App(props) {
   // console.log("props", props);
   const [textHeader, setText] = useState({
     titleHeader: "プロファイル",
-    iconHeader: "../assets/User_perspective_matte.png",
+    iconHeader: userImg,
   });
   const onChangeHeader = (value) => {
     setText(value);

@@ -1,44 +1,47 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { user, stick, color, ads, file, chart } from "../../svg/";
+import * as assets from "../../assets";
+console.log(user);
 const SideBar = ({ onChangeHeader }) => {
   const [activeLink, setActiveLink] = useState("プロファイル");
   const routes = [
     {
       path: "/profile",
       titleLink: "プロファイル",
-      icon: "../../svg/user.svg",
-      iconHeader: "../../assets/User_perspective_matte.png",
+      icon: user,
+      iconHeader: assets.userImg,
     },
     {
       path: "/appended",
       titleLink: "添付",
-      icon: "../../svg/stick.svg",
-      iconHeader: "../../assets/Clip_perspective_matte.png",
+      icon: stick,
+      iconHeader: assets.clipImg,
       buttonHeader: true,
     },
     {
       path: "/settingUIBot",
       titleLink: "チャットボットUIの設定",
-      icon: "../../svg/color.svg",
-      iconHeader: "../../assets/Paints_perspective_matte.png",
+      icon: color,
+      iconHeader: assets.paintImg,
     },
     {
       path: "/postsettings",
       titleLink: "投稿の設定",
-      icon: "../../svg/ads.svg",
-      iconHeader: "../../assets/Marketing_perspective_matte.png",
+      icon: ads,
+      iconHeader: assets.marketingImg,
     },
     {
       path: "/scenariosettings",
       titleLink: "シナリオの設定",
-      icon: "../../svg/file.svg",
-      iconHeader: "../../assets/Page_perspective_matte.png",
+      icon: file,
+      iconHeader: assets.pageImg,
     },
     {
       path: "/chart",
       titleLink: "集計",
-      icon: "../../svg/chart.svg",
-      iconHeader: "../../assets/Diagram_perspective_matte.png",
+      icon: chart,
+      iconHeader: assets.diagramImg,
     },
   ];
   return (
