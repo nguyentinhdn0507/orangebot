@@ -6,7 +6,7 @@ const Profile = () => {
       <div className="bg-white w-[256px] rounded-2xl flex flex-col items-center justify-center  ">
         <div className="mb-6">
           <div className="text-center">
-            <div className="w-[128px] h-[128px] relative  overflow-hidden rounded-full">
+            <div className="w-[128px] h-[128px] relative  overflow-hidden rounded-full ">
               <img
                 src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                 alt="User info"
@@ -32,7 +32,7 @@ const Profile = () => {
             <p className="mt-2">1985 - 06 - 13</p>
           </div>
         </div>
-        <Button className="bg-bgOrange mt-14 flex items-center gap-x-2 py-[1px] px-2 rounded-sm text-white">
+        <Button className="bg-bgOrange mt-14 flex items-center gap-x-2 py-[1px] px-2 rounded-sm text-white mb-2">
           <span>
             <svg
               width="11"
