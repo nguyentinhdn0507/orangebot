@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../button/Button";
 const Profile = () => {
   return (
-    <div className="flex h-[312px] gap-x-6">
+    <div className="flex max-h-[312px] h-full gap-x-6">
       <div className="bg-white w-[256px] rounded-2xl flex flex-col items-center justify-center  ">
         <div className="mb-6">
           <div className="text-center">
@@ -50,7 +50,7 @@ const Profile = () => {
           編集
         </Button>
       </div>
-      <div className="flex flex-col w-[873px] bg-white p-4 rounded-2xl">
+      <div className="flex flex-col max-w-[873px] w-full bg-white p-4 rounded-2xl">
         <h3 className="text-xl font-black text-slate-900 mb-6">詳細 </h3>
         <form action="" className="flex flex-col">
           <label
