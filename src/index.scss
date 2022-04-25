@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,800;1,800&display=swap");
+body {
+  @apply bg-neutral-100  text-gray-600;
+  font-family: "JetBrains Mono";
+}
+.itemActive {
+  border-left: 6px solid #fe8d00;
+  background-color: #f0f0f0;
+}
+.sidebar {
+  max-width: 208px;
+  background-color: #fff;
+}
+// .centerItem {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translateY(50%);
+// }
