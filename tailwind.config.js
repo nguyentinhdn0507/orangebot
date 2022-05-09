@@ -1,5 +1,9 @@
 module.exports = {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    // "./node_modules/flowbite/**/*.js",
+  ],
   theme: {
     extend: {
       colors: {
@@ -7,7 +11,10 @@ module.exports = {
         colorForm: "#B3B3B3",
         colorInput: "#1890FF",
         colorBorder: "D9D9D9",
-        colorItem : "#f0f0f0"
+        colorItem: "#f0f0f0",
+        colorTable: "#FAFAFA",
+        colorActiveBtn: "#025967",
+        colorText: "#8C8C8C",
       },
     },
   },

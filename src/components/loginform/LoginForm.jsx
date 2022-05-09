@@ -3,8 +3,14 @@ import Button from "../button/Button";
 import InputCheckbox from "../form-control/InputCheckbox";
 import InputField from "../form-control/InputField";
 import InputPassword from "../form-control/InputPassword";
-
+import { iconcolor, lock } from "../../svg/index";
+import { useNavigate } from "react-router";
 const LoginForm = () => {
+  const navigator = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigator("/");
+  };
   return (
     <div className="mt-7">
       <div className="text-center mt-5 mb-10">
@@ -62,42 +68,44 @@ const LoginForm = () => {
       </div>
       <div className="mx-auto max-h-[384px] w-[408px] loginForm flex flex-col bg-white rounded-lg shadow-2xl ">
         <h3 className="mt-6 text-center text-2xl font-[700]">ログイン</h3>
-        <form action="" className="px-6">
-          <div className="mt-4">
-            <InputField
-              haveIcon={true}
-              type="text"
-              label="ユーザー名"
-              name="email"
-              placeholder="ユーザー名を入力してください。"
-              className="relative text-sm w-full px-8 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-bgOrange"
-            ></InputField>
-
-            <div className="mt-4">
-              <InputPassword
-                type="password"
-                label=" パスワード"
-                placeholder="パースワードを入力してください。"
-                className="relative text-sm w-full px-8 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-bgOrange"
-                name="password"
-              ></InputPassword>
-            </div>
-            <div className="mt-4 flex justify-between items-center">
-              <InputCheckbox
-                className="transition-all mr-1"
-                name="rememberpassword"
-                text="パースワードを保存"
-              ></InputCheckbox>
-              <span className="text-colorInput cursor-pointer">
-                <a className="text-sm">パスワードをお忘れですか？</a>
-              </span>
-            </div>
-            <div className="flex items-baseline justify-between orangeMain py-6">
-              <Button className="py-2 font-[600] text-sm text-white  w-full bg-bgOrange rounded-lg">
-                サインイン
-              </Button>
-            </div>
+        <form action="" className="p-6" onSubmit={handleSubmit}>
+          <InputField
+            type="text"
+            label="ユーザー名"
+            name="email"
+            className="mb-6"
+            styleSpan="ml-2"
+            placeholder="ユーザー名を入力してください。"
+            classNameInput="focus:outline-none focus:ring-1 focus:ring-bgOrange px-6 py-2 rounded-lg"
+            icon={iconcolor}
+          />
+          <InputPassword
+            type="password"
+            label=" パスワード"
+            placeholder="パースワードを入力してください。"
+            styleSpan="ml-2"
+            className="mb-6"
+            showEyes={false}
+            classNameInput="focus:outline-none focus:ring-1 px-6 py-2 focus:ring-bgOrange rounded-lg "
+            name="password"
+            icon={lock}
+          />
+          <div className="flex justify-between mb-6">
+            <InputCheckbox
+              className="transition-all mr-1 text-sm flex items-center"
+              name="rememberpassword"
+              text="パースワードを保存"
+            ></InputCheckbox>
+            <span className="text-colorInput cursor-pointer">
+              <a className="text-sm">パスワードをお忘れですか？</a>
+            </span>
           </div>
+          <Button
+            className="py-2 font-[600] text-sm text-white  w-full bg-bgOrange rounded-lg"
+            handleSubmit={handleSubmit}
+          >
+            サインイン
+          </Button>
         </form>
       </div>
     </div>

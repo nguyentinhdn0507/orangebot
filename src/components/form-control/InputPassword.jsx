@@ -1,38 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import { eyesclose, eyesopen } from "../../svg/index";
+const InputPassword = ({
+  label,
+  type,
+  className,
+  icon,
+  styleSpan,
+  classNameInput,
+  iconRight = false,
+  showEyes = true,
+  placeholder,
+  ...props
+}) => {
+  const [togglePassword, setTogglePassword] = useState(true);
 
-const InputPassword = ({ label, type, ...props }) => {
   return (
-    <>
+    <div className={className}>
       <label
         className="text-sm text-colorForm"
         htmlFor={props.id || props.name}
       >
         {label}
       </label>
-      <div className="flex  items-center justify-start">
-        <span
-          className="
-                absolute
-                mx-2
-                z-10
-              "
-        >
-          <svg
-            width="13.43"
-            height="14.21"
-            viewBox="0 0 30 34"
-            fill="#1890FF"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M27.8573 15.0765H25.1252V6.07645C25.1252 3.23583 22.8229 0.933594 19.9823 0.933594H10.018C7.17738 0.933594 4.87515 3.23583 4.87515 6.07645V15.0765H2.14301C1.43185 15.0765 0.857292 15.651 0.857292 16.3622V31.7907C0.857292 32.5019 1.43185 33.0765 2.14301 33.0765H27.8573C28.5685 33.0765 29.143 32.5019 29.143 31.7907V16.3622C29.143 15.651 28.5685 15.0765 27.8573 15.0765ZM7.76801 6.07645C7.76801 4.83493 8.77649 3.82645 10.018 3.82645H19.9823C21.2238 3.82645 22.2323 4.83493 22.2323 6.07645V15.0765H7.76801V6.07645ZM26.2502 30.1836H3.75015V17.9693H26.2502V30.1836ZM13.8752 24.5988V26.7282C13.8752 26.905 14.0198 27.0497 14.1966 27.0497H15.8037C15.9805 27.0497 16.1252 26.905 16.1252 26.7282V24.5988C16.4568 24.3607 16.7044 24.0234 16.8322 23.6357C16.96 23.2479 16.9615 22.8296 16.8364 22.4409C16.7113 22.0523 16.4661 21.7133 16.1362 21.4729C15.8062 21.2324 15.4084 21.1029 15.0002 21.1029C14.5919 21.1029 14.1941 21.2324 13.8641 21.4729C13.5342 21.7133 13.289 22.0523 13.1639 22.4409C13.0388 22.8296 13.0403 23.2479 13.1681 23.6357C13.2959 24.0234 13.5435 24.3607 13.8752 24.5988Z"
-              fillOpacity="0.85"
-            />
-          </svg>
-        </span>
-        <input type={type} {...props} />
+      <div
+        className={`flex  items-center ${
+          iconRight ? "justify-end" : "justify-start"
+        }`}
+      >
+        {icon && (
+          <div className="flex items-center absolute z-10">
+            <div>
+              {showEyes && (
+                <img
+                  onClick={() => setTogglePassword(!togglePassword)}
+                  src={togglePassword ? eyesopen : eyesclose}
+                  alt=""
+                  className="mx-2 cursor-pointer"
+                />
+              )}
+            </div>
+
+            <div className={`${styleSpan}`}>
+              <img src={icon} />
+            </div>
+          </div>
+        )}
+
+        <input
+          className={`border  w-full ${classNameInput}`}
+          type={togglePassword ? "password" : "text"}
+          placeholder={placeholder}
+        />
       </div>
-    </>
+    </div>
   );
 };
 
