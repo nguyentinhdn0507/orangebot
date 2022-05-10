@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = ({ textHeader }) => {
-  console.log("textHeader", textHeader);
+  // console.log("textHeader", textHeader);
   return (
     <>
       <header className=" w-full  bg-white shadow-md  ">

@@ -156,7 +156,7 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
                 <nav className="">
                   {console.log("item.subMenu", item.subMenu)}
                   {item.subMenu.map((subItem) => (
-                    <NavLink to={subItem.path}>
+                    <NavLink to={subItem.path} key={subItem.titleLink}>
                       <div className="flex items-center gap-x-3 text-sm p-3 relative">
                         <div className="absolute h-full w-[6px] bg-bgOrange left-0 z-10"></div>
                         <img src={subItem.icon} alt="" className="ml-5" />
