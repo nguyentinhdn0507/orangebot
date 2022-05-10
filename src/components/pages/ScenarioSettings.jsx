@@ -10,7 +10,7 @@ const ScenarioSettings = () => {
     setModalOn(true);
   };
   return (
-    <div className="bg-white px-10 ">
+    <div className="bg-white px-4 pb-3">
       <div className="flex justify-end pt-4 pb-6">
         <Button
           className="bg-bgOrange flex gap-x-2 items-center px-4 py-2 rounded-sm text-white 
@@ -22,8 +22,8 @@ const ScenarioSettings = () => {
           新しいシナリオを作成する
         </Button>
       </div>
-      <div className="overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <div className="overflow-x-auto shadow-md sm:rounded-lg ">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-400 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-2 py-3">
@@ -59,7 +59,7 @@ const ScenarioSettings = () => {
                 scope="row"
                 className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
               >
-                Apple MacBook Pro 17"
+                Apple MacBook Pro 17
               </td>
               <td className="px-2 py-4">Sliver</td>
               <td className="px-2 py-4">Laptop</td>

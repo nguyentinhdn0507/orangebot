@@ -32,6 +32,13 @@ import setting from "./setting.svg";
 import sendmessage from "./sendmessage.svg";
 import sendComment from "./sendComment.svg";
 import selectarrowdown from "./selectarrowdown.svg";
+import shopcenario from "./shopcenario.svg";
+import arrowdownfill from "./arrowdownfill.svg";
+import turbo from "./turbo.svg";
+import dashboardperse from "./dashboardperse.svg";
+import messageperse from "./messageperse.svg";
+import spectrum from "./spectrum.svg";
+import scenariopiechart from "./scenariopiechart.svg";
 export {
   user,
   clip,
@@ -66,4 +73,11 @@ export {
   sendmessage,
   sendComment,
   selectarrowdown,
+  shopcenario,
+  arrowdownfill,
+  turbo,
+  dashboardperse,
+  messageperse,
+  spectrum,
+  scenariopiechart
 };

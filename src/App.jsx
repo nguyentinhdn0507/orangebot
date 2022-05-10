@@ -10,6 +10,9 @@ import { useState } from "react";
 import { userImg } from "./assets/index";
 import Main from "./components/layout/Main";
 import PageNotFound from "./components/pages/PageNotFound";
+import Scenario from "./components/pages/Scenario";
+import Graph from "./components/pages/Graph";
+import DialogueHistory from "./components/pages/DialogueHistory";
 
 function App(props) {
   // console.log("props", props);
@@ -36,7 +39,11 @@ function App(props) {
           <Route path="settingUIBot" element={<SettingUIBot />}></Route>
           <Route path="marketing" element={<Marketing />}></Route>
           <Route path="scenariosettings" element={<ScenarioSettings />}></Route>
-          <Route path="chart" element={<TotalChart />}></Route>
+          <Route path="chart" element={<TotalChart />}>
+            <Route path="scenario" element={<Scenario />} />
+            <Route path="dialogue_history" element={<DialogueHistory />} />
+            <Route path="graph" element={<Graph />} />
+          </Route>
         </Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>

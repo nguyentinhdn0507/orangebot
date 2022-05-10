@@ -14,10 +14,11 @@ const Profile = () => {
                 <img
                   src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                   alt="User info"
-                  className="w-full h-full "
+                  className="w-full h-full"
                 />
-                <span className=" absolute  bg-bgOrange top-[76%] h-[32px] w-full flex  left-0 cursor-pointer "></span>
-                <img src={editavatar} className="ml-14" />
+                <span className="absolute  bg-bgOrange top-[76%] h-[32px] w-full flex  left-0 cursor-pointer ">
+                  <img src={editavatar} className="h-[15px] m-auto" />
+                </span>
               </div>
             </div>
             <p className="mt-1">本田 圭佑</p>

@@ -18,7 +18,7 @@ const Main = ({ textHeader, onChangeHeader }) => {
       >
         <Header textHeader={textHeader}></Header>
         <div className="px-10 pb-4 flex-1 mt-12 ">
-          <Outlet></Outlet>
+          <Outlet context={[marginMenu]}></Outlet>
         </div>
       </div>
     </div>

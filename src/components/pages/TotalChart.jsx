@@ -1,9 +1,13 @@
 import React from "react";
+import { Outlet } from "react-router";
 
 const TotalChart = () => {
   return (
     <div className="px-10 ">
-      <div className="bg-white">Chart</div>
+      {/* <Scenario></Scenario> */}
+      {/* <Graph></Graph>
+      <ScenarioChart></ScenarioChart> */}
+      <Outlet></Outlet>
     </div>
   );
 };

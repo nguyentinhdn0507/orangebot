@@ -22,55 +22,55 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const routes = [
     {
-      path: "/profile",
+      path: "profile",
       titleLink: "プロファイル",
       icon: user,
       iconHeader: assets.userImg,
     },
     {
-      path: "/appended",
+      path: "appended",
       titleLink: "添付",
       icon: clip,
       iconHeader: assets.clipImg,
       buttonHeader: true,
     },
     {
-      path: "/settingUIBot",
+      path: "settingUIBot",
       titleLink: "チャットボットUIの設定",
       icon: paint,
       iconHeader: assets.paintImg,
     },
     {
-      path: "/marketing",
+      path: "marketing",
       titleLink: "投稿の設定",
       icon: ads,
       iconHeader: assets.marketingImg,
     },
     {
-      path: "/scenariosettings",
+      path: "scenariosettings",
       titleLink: "シナリオの設定",
       icon: file,
       iconHeader: assets.pageImg,
     },
     {
-      path: "/chart",
+      path: "chart",
       titleLink: "集計",
       icon: chart,
 
       iconHeader: assets.diagramImg,
       subMenu: [
         {
-          path: "/chart",
+          path: "/chart/scenario",
           titleLink: "シナリオ",
           icon: file,
         },
         {
-          path: "/chart",
+          path: "/chart/dialogue_history",
           titleLink: "対話履歴",
           icon: clip,
         },
         {
-          path: "/chart",
+          path: "/chart/graph",
           titleLink: "グラフ",
           icon: chart,
         },
@@ -153,9 +153,10 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
                 </div>
               </NavLink>
               {item.subMenu && showSubMenu && (
-                <ul className="">
+                <nav className="">
+                  {console.log("item.subMenu", item.subMenu)}
                   {item.subMenu.map((subItem) => (
-                    <NavLink to="/">
+                    <NavLink to={subItem.path}>
                       <div className="flex items-center gap-x-3 text-sm p-3 relative">
                         <div className="absolute h-full w-[6px] bg-bgOrange left-0 z-10"></div>
                         <img src={subItem.icon} alt="" className="ml-5" />
@@ -163,7 +164,7 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
                       </div>
                     </NavLink>
                   ))}
-                </ul>
+                </nav>
               )}
             </div>
           ))}

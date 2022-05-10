@@ -1,4 +1,5 @@
 import React from "react";
+import { useOutletContext } from "react-router";
 import {
   pantone,
   dash,
@@ -6,14 +7,22 @@ import {
   savefile,
   setting,
   sendmessage,
+  editavatar,
 } from "../../svg/index";
 import Button from "../button/Button";
 import InputField from "../form-control/InputField";
 const SettingUIBot = () => {
+  const [marginMenu] = useOutletContext();
+  console.log("marginMenu", marginMenu);
+
   return (
     <div>
       <div className="flex gap-x-6 ">
-        <div className="max-w-[745px] w-full flex flex-col gap-y-6">
+        <div
+          className={`${
+            marginMenu ? "max-w-[745px]" : "max-w-[900px]"
+          } w-full flex flex-col gap-y-6`}
+        >
           <div className="bg-white px-4 rounded-lg ">
             <div className="flex justify-between items-center py-3 border-b">
               <p className="font-black text-black">ヘッダ</p>
@@ -33,12 +42,17 @@ const SettingUIBot = () => {
               </div>
             </div>
             <div className="flex gap-x-3 py-4 items-end">
-              <div className="w-[100px] h-[100px]">
-                <img
-                  className="w-full h-full object-cover rounded-full"
-                  src="https://media.istockphoto.com/vectors/bowl-of-hot-japanese-ramen-soup-with-noodles-boiled-egg-nori-seaweed-vector-id1281120604?k=20&m=1281120604&s=612x612&w=0&h=7PbbkzsBbITGx6WYOrlX2GF6qZlEmNDXwT99w0kDYcQ="
-                  alt=""
-                />
+              <div className="w-[100px] h-[100px]  overflow-hidden rounded-full ">
+                <div className="relative w-full h-full ">
+                  <img
+                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="User info"
+                    className="w-full h-full"
+                  />
+                  <span className="absolute  bg-bgOrange top-[76%] h-[25px] w-full flex  left-0 cursor-pointer ">
+                    <img src={editavatar} className="m-auto h-[15px]" />
+                  </span>
+                </div>
               </div>
               <div className="w-full flex-1">
                 <h3>文書</h3>
@@ -174,7 +188,7 @@ const SettingUIBot = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1 bg-white rounded-t-xl flex flex-col justify-between">
+        <div className="flex-1 max-w-[382px] bg-white rounded-t-xl flex flex-col justify-between">
           <div className="bg-colorActiveBtn rounded-t-xl p-3 flex justify-between items-center h-[68px]">
             <div className="flex gap-x-3 ">
               <div className="w-[40px] h-[40px] ">
