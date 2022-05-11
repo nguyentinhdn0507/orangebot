@@ -15,8 +15,8 @@ module.exports = {
         colorTable: "#FAFAFA",
         colorActiveBtn: "#025967",
         colorText: "#8C8C8C",
-        colorMenuChart : "F5F5F5",
-        colorTextMenuChart : "8C8C8C"
+        colorBgChart: "f5f5f5",
+        colorTextChart: "8C8C8C",
       },
     },
   },

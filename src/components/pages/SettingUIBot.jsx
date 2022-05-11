@@ -188,7 +188,7 @@ const SettingUIBot = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1 max-w-[382px] bg-white rounded-t-xl flex flex-col justify-between">
+        <div className="flex-1 min-w-[382px] bg-white rounded-t-xl flex flex-col justify-between">
           <div className="bg-colorActiveBtn rounded-t-xl p-3 flex justify-between items-center h-[68px]">
             <div className="flex gap-x-3 ">
               <div className="w-[40px] h-[40px] ">

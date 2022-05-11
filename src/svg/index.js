@@ -39,6 +39,11 @@ import dashboardperse from "./dashboardperse.svg";
 import messageperse from "./messageperse.svg";
 import spectrum from "./spectrum.svg";
 import scenariopiechart from "./scenariopiechart.svg";
+import pluscolor from "./pluscolor.svg";
+import closebtn from "./closebtn.svg";
+import avatarmodal from "./avatarmodal.svg";
+import plusmodal from "./plusmodal.svg";
+import deletemodal from "./deletemodal.svg";
 export {
   user,
   clip,
@@ -79,5 +84,10 @@ export {
   dashboardperse,
   messageperse,
   spectrum,
-  scenariopiechart
+  scenariopiechart,
+  pluscolor,
+  closebtn,
+  avatarmodal,
+  plusmodal,
+  deletemodal,
 };

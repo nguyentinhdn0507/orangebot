@@ -59,17 +59,28 @@ const ScenarioSettings = () => {
                 scope="row"
                 className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
               >
-                Apple MacBook Pro 17
+                インタビュースケジュール
               </td>
-              <td className="px-2 py-4">Sliver</td>
-              <td className="px-2 py-4">Laptop</td>
-              <td className="px-2 py-4">$2999</td>
+              <td className="px-2 py-4">UserName</td>
+              <td className="px-2 py-4">2022/01/25</td>
+              <td className="px-2 py-4 flex gap-x-2">
+                <Button className="bg-orange-300 py-[3px] px-2 rounded-sm text-orange-400">
+                  # orange
+                </Button>
+                <Button className="bg-orange-300 py-[1px] px-2 rounded-sm text-orange-400">
+                  # orange
+                </Button>
+                <Button className="bg-orange-300 py-[1px] px-2 rounded-sm text-orange-400">
+                  # orange
+                </Button>
+              </td>
               <td className="px-2 py-4 text-left text-blue-600">Edit</td>
               <td className="px-6 py-4 text-right text-blue-600"></td>
             </tr>
           </tbody>
         </table>
       </div>
+
       {modalOn && <Modal setModalOn={setModalOn} setChoice={setChoice} />}
     </div>
   );

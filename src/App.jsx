@@ -2,6 +2,7 @@ import LoginForm from "./components/loginform/LoginForm";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./components/pages/Profile";
 import Appended from "./components/pages/Appended";
+import Attachment from "./components/pages/Attachment";
 import SettingUIBot from "./components/pages/SettingUIBot";
 import TotalChart from "./components/pages/TotalChart";
 import Marketing from "./components/pages/Marketing";
@@ -13,6 +14,7 @@ import PageNotFound from "./components/pages/PageNotFound";
 import Scenario from "./components/pages/Scenario";
 import Graph from "./components/pages/Graph";
 import DialogueHistory from "./components/pages/DialogueHistory";
+import ScenarioChart from "./components/pages/ScenarioChart";
 
 function App(props) {
   // console.log("props", props);
@@ -42,7 +44,10 @@ function App(props) {
           <Route path="chart" element={<TotalChart />}>
             <Route path="scenario" element={<Scenario />} />
             <Route path="dialogue_history" element={<DialogueHistory />} />
-            <Route path="graph" element={<Graph />} />
+            <Route path="graph" element={<Graph />}>
+              <Route path="attachment" element={<Attachment />} />
+              <Route path="scenarioChart" element={<ScenarioChart />} />
+            </Route>
           </Route>
         </Route>
         <Route path="*" element={<PageNotFound />}></Route>
