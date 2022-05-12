@@ -6,8 +6,8 @@ const Graph = () => {
   const titleGraph = [
     { id: 1, title: "シナリオ", path: "/chart/graph/attachment" },
     { id: 2, title: "添付ファイル", path: "/chart/graph/scenarioChart" },
-    { id: 3, title: "アクセス数", path: "/chart/graph/scenarioChart" },
-    { id: 4, title: "開始数・離脱数", path: "/chart/graph/scenarioChart" },
+    { id: 3, title: "アクセス数", path: "/chart/graph/numberofaccesses" },
+    { id: 4, title: "開始数・離脱数", path: "/chart/graph/numberOfStarts" },
   ];
   const [activeLink, setActiveLink] = useState(true);
   const [activeItem, setActiveItem] = useState(titleGraph.title);

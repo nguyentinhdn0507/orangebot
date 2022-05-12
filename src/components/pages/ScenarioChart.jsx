@@ -1,25 +1,49 @@
 import React from "react";
-import { arrowdownfill, scenariopiechart, spectrum } from "../../svg";
+import {
+  arrowdownfill,
+  beamin,
+  lazada,
+  scenariopiechart,
+  spectrum,
+  tiki,
+  unsplash,
+} from "../../svg";
 import InputCheckbox from "../form-control/InputCheckbox";
 
 const ScenarioChart = () => {
   return (
     <div className="w-full">
-      <div className="flex mt-4 gap-x-5 ">
-        <div className="bg-white w-full max-w-[690px] p-4 rounded-lg">
+      <div className="flex mt-4 gap-x-3 ">
+        <div className="bg-white w-full max-w-[710px] max-h-[310px] p-4 rounded-lg">
           <h3 className="text-black font-bold">シナリオがよく使われたページ</h3>
-          <div className="flex flex-wrap">
-            <div className="w-[100px] h-[100px]">
+          <div className="flex gap-x-5 flex-wrap mt-5">
+            <div className="max-w-[150px] h-[80px]">
               <img src={spectrum} alt="" className="w-full" />
+            </div>
+            <div className="max-w-[150px] h-[80px]">
+              <img src={unsplash} alt="" className="w-full" />
+            </div>
+            <div className="max-w-[150px] h-[80px]">
+              <img src={lazada} alt="" className="w-full" />
+            </div>
+            <div className="max-w-[150px] h-[80px]">
+              <img src={beamin} alt="" className="w-full" />
+            </div>
+            <div className="max-w-[150px] h-[80px]">
+              <img src={tiki} alt="" className="w-full" />
             </div>
           </div>
         </div>
         <div className="w-full bg-white max-w-[410px] p-4 rounded-lg">
           <h3 className="text-black font-bold">シナリオ間の使用率</h3>
           <div className="flex justify-center">
-            <div>
+            <div className="w-[176px] h-[176px]">
               {" "}
-              <img src={scenariopiechart} alt="" />
+              <img
+                className="w-full h-full object-cover"
+                src={scenariopiechart}
+                alt=""
+              />
             </div>
           </div>
           <div className="flex items-center justify-center gap-x-4">

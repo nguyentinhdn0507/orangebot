@@ -15,6 +15,8 @@ import Scenario from "./components/pages/Scenario";
 import Graph from "./components/pages/Graph";
 import DialogueHistory from "./components/pages/DialogueHistory";
 import ScenarioChart from "./components/pages/ScenarioChart";
+import NumberOfAccesses from "./components/pages/NumberOfAccesses";
+import NumberOfStarts from "./components/pages/NumberOfStarts";
 
 function App(props) {
   // console.log("props", props);
@@ -47,6 +49,8 @@ function App(props) {
             <Route path="graph" element={<Graph />}>
               <Route path="attachment" element={<Attachment />} />
               <Route path="scenarioChart" element={<ScenarioChart />} />
+              <Route path="numberofaccesses" element={<NumberOfAccesses />} />
+              <Route path="numberOfStarts" element={<NumberOfStarts />} />
             </Route>
           </Route>
         </Route>

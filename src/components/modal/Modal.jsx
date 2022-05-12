@@ -36,7 +36,6 @@ const Modal = ({ setModalOn, setChoice }) => {
               </Button>
             </div>
           </div>
-
           <div className="flex mt-5 justify-between items-center">
             <div className="pr-5 border-r-2 w-full ">
               <InputField
@@ -90,49 +89,30 @@ const Modal = ({ setModalOn, setChoice }) => {
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td
-                      scope="row"
-                      rowSpan={3}
-                      className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-                    >
-                      01
-                    </td>
-                    <td rowSpan={3} scope="row" className="px-6 py-4">
-                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
-                    </td>
-                    <td className="px-6 py-4">
-                      <select
-                        id="default"
-                        className="py-2 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      >
-                        <option selected>Option</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                      </select>
-                    </td>
-
-                    <td className="px-6 py-4">
-                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
-                    </td>
-                    <td className="px-6 py-4" rowSpan={3}>
-                      <div className="flex items-center gap-x-3">
-                        <input
-                          id="default-radio-2"
-                          type="radio"
-                          value=""
-                          name="default-radio"
-                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        />
-                        <Button>
-                          <img src={plusmodal} alt="" />
-                        </Button>
-                        <Button>
-                          <img src={deletemodal} alt="" />
-                        </Button>
-                      </div>
-                    </td>
+                    <td rowspan="3">Emil</td>
+                    <td rowspan="3">Emil</td>
+                    <td>Tobias</td>
+                    <td>Linus</td>
+                    <td rowspan="3">Linus</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">16</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">16</td>
+                  </tr>
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td rowspan="3">Emil</td>
+                    <td rowspan="3">Emil</td>
+                    <td>Tobias</td>
+                    <td>Linus</td>
+                    <td rowspan="3">Linus</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">16</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">16</td>
                   </tr>
                 </tbody>
               </table>
@@ -156,3 +136,46 @@ const Modal = ({ setModalOn, setChoice }) => {
 };
 
 export default Modal;
+{
+  /* <td
+                      scope="row"
+                      className="row-span-3 px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                    >
+                      01
+                    </td>
+                    <td rowSpan={3} scope="row" className="px-6 py-4">
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td className="px-6 py-4">
+                      <select
+                        id="default"
+                        className="py-2 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      >
+                        <option selected>Option</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                      </select>
+                    </td>
+                    <td className="px-6 py-4">
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td className="px-6 py-4" rowSpan={3}>
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="default-radio-2"
+                          type="radio"
+                          value=""
+                          name="default-radio"
+                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <Button>
+                          <img src={plusmodal} alt="" />
+                        </Button>
+                        <Button>
+                          <img src={deletemodal} alt="" />
+                        </Button>
+                      </div>
+                    </td> */
+}

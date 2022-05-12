@@ -44,7 +44,15 @@ import closebtn from "./closebtn.svg";
 import avatarmodal from "./avatarmodal.svg";
 import plusmodal from "./plusmodal.svg";
 import deletemodal from "./deletemodal.svg";
+import unsplash from "./unsplash.svg";
+import lazada from "./lazada.svg";
+import tiki from "./tiki.svg";
+import beamin from "./beamin.svg";
 export {
+  unsplash,
+  beamin,
+  tiki,
+  lazada,
   user,
   clip,
   paint,
