@@ -48,7 +48,11 @@ import unsplash from "./unsplash.svg";
 import lazada from "./lazada.svg";
 import tiki from "./tiki.svg";
 import beamin from "./beamin.svg";
+import closeinputmodal from "./closeinputmodal.svg";
+import plusmodalinput from "./plusmodalinput.svg";
 export {
+  closeinputmodal,
+  plusmodalinput,
   unsplash,
   beamin,
   tiki,

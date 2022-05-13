@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   avatarmodal,
   closebtn,
@@ -6,6 +6,8 @@ import {
   pluscolor,
   plusmodal,
   deletemodal,
+  closeinputmodal,
+  plusmodalinput,
 } from "../../svg";
 import Button from "../button/Button";
 import InputField from "../form-control/InputField";
@@ -19,6 +21,10 @@ const Modal = ({ setModalOn, setChoice }) => {
     setChoice(false);
     setModalOn(false);
   };
+  const [insertRow, setInsertRow] = useState();
+  const handelInsertRow = () => {
+    console.log("hello");
+  };
   return (
     <div className="bg-black/20 opacity-1 fixed inset-0 z-10   ">
       <div className="flex h-screen justify-center items-center ">
@@ -31,7 +37,7 @@ const Modal = ({ setModalOn, setChoice }) => {
               <h3>スクリプトを作成する</h3>
             </div>
             <div>
-              <Button onClick={handleCancelClick}>
+              <Button>
                 <img src={closebtn} alt="" />
               </Button>
             </div>
@@ -70,49 +76,213 @@ const Modal = ({ setModalOn, setChoice }) => {
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-3 py-3">
                       No
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-3 py-3 max-w-[230px]">
                       メッセージ
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-3 py-3">
                       コントロール
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-3 py-3 max-w-[167px]">
                       項目名
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-3 py-3">
                       CV地点
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td rowspan="3">Emil</td>
-                    <td rowspan="3">Emil</td>
-                    <td>Tobias</td>
-                    <td>Linus</td>
-                    <td rowspan="3">Linus</td>
+                  <tr className="bg-white border-b border-bgOrange dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td
+                      rowspan="2"
+                      className="align-text-top pt-2 max-w-[45px] p-3"
+                    >
+                      01
+                    </td>
+                    <td
+                      rowSpan="2"
+                      className="align-text-top pt-2 max-w-[230px] pr-3 pb-3"
+                    >
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td className="py-2">
+                      <select
+                        id="default"
+                        className="py-2 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      >
+                        <option selected>Option</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                      </select>
+                    </td>
+                    <td className="max-w-[167px]">
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td rowSpan="2" className="align-text-top pl-3">
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="default-radio-2"
+                          type="radio"
+                          value=""
+                          name="default-radio"
+                          className="w-4 h-4 text-blue-600  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <Button>
+                          <img src={plusmodal} alt="" />
+                        </Button>
+                        <Button>
+                          <img src={deletemodal} alt="" />
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="py-3 border-b">
+                    <td colSpan="2" className="py-2">
+                      <div className="mb-3 flex gap-x-3">
+                        <InputField
+                          label="オプション1 "
+                          className="flex flex-1 relative gap-x-3"
+                          classNameInput="rounded-sm "
+                          icon={closeinputmodal}
+                          flexfull="flex-1"
+                          styleSpan="px-2"
+                          iconRight
+                        ></InputField>
+                        <Button
+                          icon={plusmodalinput}
+                          onClick={handelInsertRow}
+                        />
+                      </div>
+                      <div className="flex items-center  gap-x-3">
+                        <InputField
+                          label="オプション2 "
+                          className="flex flex-1 relative gap-x-3"
+                          classNameInput="rounded-sm "
+                          icon={closeinputmodal}
+                          flexfull="flex-1"
+                          styleSpan="px-2"
+                          iconRight
+                        ></InputField>
+                        <Button icon={plusmodalinput} />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="bg-white border-b border-bgOrange dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td
+                      rowspan="2"
+                      className="align-text-top pt-2 max-w-[45px] p-3"
+                    >
+                      01
+                    </td>
+                    <td
+                      rowspan="2"
+                      className="align-text-top pt-2 max-w-[230px] pr-3 py-3"
+                    >
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td className="py-2">
+                      <select
+                        id="default"
+                        className="py-2 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      >
+                        <option selected>Option</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                      </select>
+                    </td>
+                    <td className="max-w-[167px]">
+                      {" "}
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td rowspan="2" className="align-text-top pl-3 pb-3">
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="default-radio-2"
+                          type="radio"
+                          value=""
+                          name="default-radio"
+                          className="w-4 h-4 text-blue-600  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <Button>
+                          <img src={plusmodal} alt="" />
+                        </Button>
+                        <Button>
+                          <img src={deletemodal} alt="" />
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="border-b">
+                    <td colSpan="2" className="py-2">
+                      <div className="mb-3 flex gap-x-3">
+                        <InputField
+                          label="オプション1 "
+                          className="flex flex-1 relative gap-x-3"
+                          classNameInput="rounded-sm "
+                          icon={closeinputmodal}
+                          flexfull="flex-1"
+                          styleSpan="px-2"
+                          iconRight
+                        ></InputField>
+                        <Button icon={plusmodalinput} />
+                      </div>
+                      <div className="flex items-center  gap-x-3">
+                        <InputField
+                          label="オプション2 "
+                          className="flex flex-1 relative gap-x-3"
+                          classNameInput="rounded-sm "
+                          icon={closeinputmodal}
+                          flexfull="flex-1"
+                          styleSpan="px-2"
+                          iconRight
+                        ></InputField>
+                        <Button icon={plusmodalinput} />
+                      </div>
+                    </td>
                   </tr>
                   <tr>
-                    <td colspan="2">16</td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">16</td>
-                  </tr>
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td rowspan="3">Emil</td>
-                    <td rowspan="3">Emil</td>
-                    <td>Tobias</td>
-                    <td>Linus</td>
-                    <td rowspan="3">Linus</td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">16</td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">16</td>
+                    <td className="align-text-top pt-2 max-w-[45px] p-3">01</td>
+                    <td className="align-text-top pt-2 max-w-[230px] pr-3">
+                      <InputField></InputField>{" "}
+                    </td>
+                    <td className="py-2">
+                      <select
+                        id="default"
+                        className="py-2 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      >
+                        <option selected>Option</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                      </select>
+                    </td>
+                    <td className="py-2 ">
+                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
+                    </td>
+                    <td>
+                      <div className="flex items-center gap-x-3 pl-3">
+                        <input
+                          id="default-radio-2"
+                          type="radio"
+                          value=""
+                          name="default-radio"
+                          className="w-4 h-4 text-blue-600  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <Button>
+                          <img src={plusmodal} alt="" />
+                        </Button>
+                        <Button>
+                          <img src={deletemodal} alt="" />
+                        </Button>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -136,46 +306,3 @@ const Modal = ({ setModalOn, setChoice }) => {
 };
 
 export default Modal;
-{
-  /* <td
-                      scope="row"
-                      className="row-span-3 px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-                    >
-                      01
-                    </td>
-                    <td rowSpan={3} scope="row" className="px-6 py-4">
-                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
-                    </td>
-                    <td className="px-6 py-4">
-                      <select
-                        id="default"
-                        className="py-2 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      >
-                        <option selected>Option</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                      </select>
-                    </td>
-                    <td className="px-6 py-4">
-                      <InputField classNameInput="py-1 px-2 rounded-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"></InputField>
-                    </td>
-                    <td className="px-6 py-4" rowSpan={3}>
-                      <div className="flex items-center gap-x-3">
-                        <input
-                          id="default-radio-2"
-                          type="radio"
-                          value=""
-                          name="default-radio"
-                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        />
-                        <Button>
-                          <img src={plusmodal} alt="" />
-                        </Button>
-                        <Button>
-                          <img src={deletemodal} alt="" />
-                        </Button>
-                      </div>
-                    </td> */
-}

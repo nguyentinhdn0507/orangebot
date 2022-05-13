@@ -1,6 +1,6 @@
 import React from "react";
 import { arrowdownfill, turbo } from "../../svg";
-import LineChart from "./LineChart";
+import LineChart from "../chart/LineChart";
 
 const NumberOfAccesses = () => {
   return (
@@ -18,7 +18,9 @@ const NumberOfAccesses = () => {
           </div>
         </div>
       </div>
-      <div>{/* <LineChart></LineChart> */}</div>
+      <div>
+        <LineChart></LineChart>
+      </div>
     </div>
   );
 };

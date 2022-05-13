@@ -11,6 +11,7 @@ const InputField = ({
   classNameInput,
   placeholder,
   styleInput,
+  flexfull,
   ...props
 }) => {
   return (
@@ -22,7 +23,7 @@ const InputField = ({
         {label}
       </label>
       <div
-        className={`flex  items-center ${
+        className={`flex  items-center ${flexfull} ${
           iconRight ? "justify-end" : "justify-start"
         }`}
       >
