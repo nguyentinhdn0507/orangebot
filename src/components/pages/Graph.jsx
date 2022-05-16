@@ -25,7 +25,7 @@ const Graph = () => {
                   activeItem === item.title
                     ? "bg-bgOrange text-white font-bold"
                     : ""
-                }transition duration-300 cursor-pointer py-2 px-5 rounded-full `}
+                } duration-500 cursor-pointer py-2 px-5 rounded-full `}
                 onClick={() => {
                   setActiveLink(!activeLink);
                   setActiveItem(item.title);

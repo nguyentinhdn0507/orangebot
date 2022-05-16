@@ -10,6 +10,7 @@ const InputPassword = ({
   iconRight = false,
   showEyes = true,
   placeholder,
+  onclickRightIcon,
   ...props
 }) => {
   const [togglePassword, setTogglePassword] = useState(true);
@@ -40,12 +41,14 @@ const InputPassword = ({
               )}
             </div>
 
-            <div className={`${styleSpan}`}>
+            <div
+              className={`${styleSpan} cursor-pointer`}
+              onClick={() => onclickRightIcon?.()}
+            >
               <img src={icon} />
             </div>
           </div>
         )}
-
         <input
           className={`border  w-full ${classNameInput}`}
           type={togglePassword ? "password" : "text"}

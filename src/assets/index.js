@@ -5,7 +5,9 @@ import marketingImg from "./Marketing_perspective_matte.png";
 import diagramImg from "./Diagram_perspective_matte.png";
 import pageImg from "./Page_perspective_matte.png";
 import databaseImg from "./Database_perspective_matte.png";
+import messageperspective from "./Message_perspective_matte.png";
 import searchinfoImg from "./searchinfoImg.png";
+
 export {
   userImg,
   clipImg,
@@ -15,4 +17,5 @@ export {
   pageImg,
   databaseImg,
   searchinfoImg,
+  messageperspective,
 };

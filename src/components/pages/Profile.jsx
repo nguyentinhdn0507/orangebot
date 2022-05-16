@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../button/Button";
 import InputField from "../form-control/InputField";
 import { edit, editavatar, eyesclose, updateedit } from "../../svg/index";
 import InputPassword from "../form-control/InputPassword";
 const Profile = () => {
+  const [formEdit, setFormEdit] = useState(false);
+  const toggleEditForm = () => {
+    console.log("Open Form");
+    setFormEdit(!formEdit);
+  };
+  const [userDetail, setUserDetail] = useState("本田 圭佑");
   return (
     <div className="flex max-h-[312px] h-full w-full gap-x-6 px-10 ">
       <div className="bg-white max-w-[256px] w-full  rounded-2xl flex flex-col items-center justify-center  ">
@@ -25,7 +31,10 @@ const Profile = () => {
             <p className="mt-2">1985 - 06 - 13</p>
           </div>
         </div>
-        <Button className="bg-bgOrange  flex items-center gap-x-2 py-[1px] px-2 rounded-sm text-white mb-2">
+        <Button
+          onClick={toggleEditForm}
+          className="bg-bgOrange  flex items-center gap-x-2 py-[1px] px-2 rounded-sm text-white mb-2"
+        >
           <img src={updateedit} alt="" />
           編集
         </Button>
@@ -53,7 +62,13 @@ const Profile = () => {
             icon={edit}
             styleInput="p-[14px] z-10 border-l"
             placeholder="Enter Your Password"
+            onclickRightIcon={toggleEditForm}
           />
+          {formEdit && (
+            <>
+              <p className="p-2">{userDetail}</p>
+            </>
+          )}
         </form>
       </div>
     </div>
