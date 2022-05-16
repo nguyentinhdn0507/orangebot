@@ -18,13 +18,15 @@ const data = {
     "11月",
     "12月",
   ],
-  datasets: [{ data: [5, 10, 15, 20, 25, 30, 35, 40, 45, 45, 50, 60] }],
-  //   backgroundColor: gradient,
+  datasets: [
+    { data: [5, 10, 15, 20, 25, 30, 35, 40, 45, 45, 50, 60], barThickness: 10 },
+  ],
 };
+const options = { plugins: { legend: { display: false } } };
 const BarChart = () => {
   return (
     <div>
-      <Bar data={data} />
+      <Bar data={data} options={options} />
     </div>
   );
 };

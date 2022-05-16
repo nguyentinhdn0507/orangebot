@@ -1,76 +1,58 @@
 import React, { useState } from "react";
 import {
   arrowdownfill,
+  calendarswapright,
   dashboardperse,
   messageperse,
   shopcenario,
   turbo,
 } from "../../svg";
-import { DateRangePicker } from "react-date-range";
-import DatePicker from "react-datepicker";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import "react-datepicker/dist/react-datepicker.css";
 import InputCheckbox from "../form-control/InputCheckbox";
-
+import { DateRange } from "react-date-range";
+import { format } from "date-fns";
 const Scenario = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  // const [startDate, setStartDate] = useState(new Date());
-  // const [endDate, setEndDate] = useState(new Date());
-  // const selectRange = {
-  //   startDate: startDate,
-  //   endDate: endDate,
-  //   key: "selection",
-  // };
-  const handleSlected = (range) => {
-    setStartDate(range.selection.startDate);
-    setEndDate(range.selection.endDate);
-  };
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+  const img = calendarswapright;
+  const [openDate, setOpenDate] = useState(false);
   return (
     <div>
       <div className="bg-white rounded-md p-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-x-2">
+          <div className="flex items-center gap-x-2 relative">
             <img src={shopcenario} alt="" />
             <div className="flex gap-x-4">
               <span>クーポン</span>
               <img src={arrowdownfill} alt="" />
             </div>
           </div>
-          <div className="flex gap-x-2 items-center">
+          <div className="flex gap-x-4 items-center">
             <span>期間</span>
-            <div className="border flex justify-center px-4 rounded-lg">
-              <div className="flex items-center">
-                <div>
-                  <DatePicker
-                    selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
-                    dateFormat="dd/MM/yyyy"
-                    width={50}
-                  />
-                </div>
-                <span className="mx-4 text-gray-500">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.6422 9.31563L11.0797 6.06563C11.033 6.00629 10.9734 5.95832 10.9055 5.92531C10.8375 5.89229 10.763 5.87509 10.6875 5.875H9.675C9.57031 5.875 9.5125 5.99531 9.57656 6.07812L11.8313 8.9375H2.375C2.30625 8.9375 2.25 8.99375 2.25 9.0625V10C2.25 10.0687 2.30625 10.125 2.375 10.125H13.2484C13.6672 10.125 13.9 9.64375 13.6422 9.31563Z"
-                      fill="black"
-                      fill-opacity="0.25"
-                    />
-                  </svg>
-                </span>
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  dateFormat="dd/MM/yyyy"
-                />
-              </div>
-            </div>
+            <span
+              onClick={() => setOpenDate(!openDate)}
+              className="cursor-pointer border p-2 rounded-sm"
+            >{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
+              date[0].endDate,
+              "MM/dd/yyyy"
+            )}`}</span>
+            {openDate && (
+              <DateRange
+                className="absolute top-[30%] right-[7%]"
+                editableDateInputs={true}
+                onChange={(item) => setDate([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={date}
+                minDate={new Date()}
+              />
+            )}
           </div>
         </div>
         <table className="table-auto w-full mt-5">

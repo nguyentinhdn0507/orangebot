@@ -20,41 +20,22 @@ const data = {
       data: [450, 550, 350, 410, 100, 300, 350, 300, 550, 610],
       pointRadius: 6,
       pointBorderColor: "#AE8FF7",
+      fill: true,
+      tension: 0.4,
+      
     },
   ],
 };
 const options = {
-  // scales: {
-  //   yAxes: [
-  //     {
-  //       ticks: {
-  //         beginAtZero: true,
-  //       },
-  //     },
-  //   ],
-  // },
   plugins: { legend: { display: false } },
-  layout: { padding: { bottom: 100 } },
   scales: {
-    y: {
-      ticks: {
-        color: "white",
-        font: {
-          size: 18,
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
         },
       },
-      grid: {
-        color: "#243240",
-      },
-    },
-    x: {
-      ticks: {
-        color: "white",
-        font: {
-          size: 18,
-        },
-      },
-    },
+    ],
   },
 };
 const LineChart = () => {

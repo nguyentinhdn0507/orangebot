@@ -37,7 +37,7 @@ const Marketing = () => {
           </Button>
         </div>
       </div>
-      <div className="bg-white flex-1 rounded-lg px-4">
+      <div className="bg-white flex-1 rounded-lg p-4">
         <div>
           <Editor
             onInit={(evt, editor) => (editorRef.current = editor)}

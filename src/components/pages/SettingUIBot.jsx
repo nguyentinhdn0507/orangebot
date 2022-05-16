@@ -104,7 +104,7 @@ const SettingUIBot = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white px-4 py-3 border-b">
+          <div className="bg-white px-4 py-3 border-b rounded-lg">
             <div className="flex justify-between ">
               <h3 className="font-black text-black">チャットボックス</h3>
               <div className="flex items-center gap-x-2">
@@ -221,7 +221,7 @@ const SettingUIBot = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white mt-6 p-4">
+      <div className="bg-white mt-6 p-4 rounded-lg">
         <h3 className="text-black font-black mb-6">埋め込みリンク</h3>
         <div className="flex justify-between gap-x-4 items-center">
           <InputField

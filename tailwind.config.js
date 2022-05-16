@@ -8,6 +8,11 @@ module.exports = {
     extend: {
       colors: {
         bgOrange: "#FE8D00",
+        bgSpectrum: "#518bae",
+        bgUnplash: "#494c4e",
+        bgLazada: "#1203b1",
+        bgBeamin: "#5fc2bd",
+        bgTiki: "#5dbaf2",
         colorForm: "#B3B3B3",
         colorInput: "#1890FF",
         colorBorder: "D9D9D9",

@@ -2,11 +2,17 @@ import React from "react";
 import {
   arrowdownfill,
   beamin,
+  callspectrum,
   lazada,
   scenariopiechart,
   spectrum,
   tiki,
   unsplash,
+  shadownspectrum,
+  shadownunplash,
+  shadownlazada,
+  shadownbeamin,
+  shadowntiki,
 } from "../../svg";
 import InputCheckbox from "../form-control/InputCheckbox";
 
@@ -14,27 +20,85 @@ const ScenarioChart = () => {
   return (
     <div className="w-full">
       <div className="flex mt-4 gap-x-3 ">
-        <div className="bg-white w-full max-w-[710px] max-h-[310px] p-4 rounded-lg">
+        <div className="bg-white w-full p-4 rounded-lg">
           <h3 className="text-black font-bold">シナリオがよく使われたページ</h3>
-          <div className="flex gap-x-5 flex-wrap mt-5">
-            <div className="max-w-[150px] h-[80px]">
-              <img src={spectrum} alt="" className="w-full" />
+          <div className="grid gap-x-5 grid-cols-3 mt-5 ">
+            <div className="w-full mb-6">
+              <div
+                className="bg-bgSpectrum
+               overflow-hidden  flex justify-between rounded-lg "
+              >
+                <img className=" p-3" src={callspectrum} alt="" />
+                <div className="flex flex-col p-3">
+                  <span className="text-white">spectrrum</span>
+                  <span className="text-white font-bold">912,873</span>
+                </div>
+                <div className="flex relative">
+                  <img src={shadownspectrum} alt="" />
+                  <img src={spectrum} alt="" className="absolute right-0" />
+                </div>
+              </div>
+              <p className="text-center">spectrum.com</p>
             </div>
-            <div className="max-w-[150px] h-[80px]">
-              <img src={unsplash} alt="" className="w-full" />
+            <div className="w-full mb-6">
+              <div className="bg-bgUnplash overflow-hidden  flex justify-between rounded-lg ">
+                <img className=" p-3" src={callspectrum} alt="" />
+                <div className="flex flex-col p-3">
+                  <span className="text text-white">spectrrum</span>
+                  <span className=" text-white font-bold">912,873</span>
+                </div>
+                <div className="flex relative">
+                  <img src={shadownunplash} alt="" />
+                  <img src={unsplash} alt="" className="absolute right-0" />
+                </div>
+              </div>
+              <p className="text-center">unsplash.com</p>
             </div>
-            <div className="max-w-[150px] h-[80px]">
-              <img src={lazada} alt="" className="w-full" />
+            <div className="w-full mb-6">
+              <div className="bg-bgLazada overflow-hidden  flex justify-between rounded-lg ">
+                <img className=" p-3" src={callspectrum} alt="" />
+                <div className="flex flex-col p-3">
+                  <span className="text-white">spectrrum</span>
+                  <span className=" text-white font-bold">912,873</span>
+                </div>
+                <div className="flex relative">
+                  <img src={shadownlazada} alt="" />
+                  <img src={lazada} alt="" className="absolute right-0" />
+                </div>
+              </div>
+              <p className="text-center">lazada.com</p>
             </div>
-            <div className="max-w-[150px] h-[80px]">
-              <img src={beamin} alt="" className="w-full" />
+            <div className="w-full mb-6">
+              <div className="bg-bgBeamin overflow-hidden  flex justify-between rounded-lg ">
+                <img className=" p-3" src={callspectrum} alt="" />
+                <div className="flex flex-col p-3">
+                  <span className="text-white">spectrrum</span>
+                  <span className="text-white font-bold">912,873</span>
+                </div>
+                <div className="flex relative">
+                  <img src={shadownbeamin} alt="" />
+                  <img src={beamin} alt="" className="absolute right-0" />
+                </div>
+              </div>
+              <p className="text-center">Baemin.com</p>
             </div>
-            <div className="max-w-[150px] h-[80px]">
-              <img src={tiki} alt="" className="w-full" />
+            <div className="w-full mb-6">
+              <div className="bg-bgTiki  overflow-hidden  flex justify-between rounded-lg ">
+                <img className=" p-3" src={callspectrum} alt="" />
+                <div className="flex flex-col p-3">
+                  <span className="text-white">spectrrum</span>
+                  <span className="text-white font-bold">912,873</span>
+                </div>
+                <div className="flex relative">
+                  <img src={shadownspectrum} alt="" />
+                  <img src={tiki} alt="" className="absolute right-0" />
+                </div>
+              </div>
+              <p className="text-center">Tiki.com</p>
             </div>
           </div>
         </div>
-        <div className="w-full bg-white max-w-[410px] p-4 rounded-lg">
+        <div className=" bg-white p-4 rounded-lg">
           <h3 className="text-black font-bold">シナリオ間の使用率</h3>
           <div className="flex justify-center">
             <div className="w-[176px] h-[176px]">
@@ -49,15 +113,15 @@ const ScenarioChart = () => {
           <div className="flex items-center justify-center gap-x-4">
             <div className="flex items-center gap-1">
               <span className="w-[20px] h-[20px] bg-orange-300 rounded-sm"></span>
-              <span> 面談日程</span>
+              <span className="whitespace-nowrap"> 面談日程</span>
             </div>
             <div className="flex items-center gap-1">
               <span className="w-[20px] h-[20px] bg-gradient-to-r from-purple-500 to-indigo-500 rounded-sm"></span>
-              <span> 航空券予約</span>
+              <span className="whitespace-nowrap"> 航空券予約</span>
             </div>
             <div className="flex items-center gap-1">
               <span className="w-[20px] h-[20px] bg-pink-300 rounded-sm"></span>
-              <span>クーポン</span>
+              <span className="whitespace-nowrap">クーポン</span>
             </div>
           </div>
         </div>

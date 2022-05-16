@@ -37,7 +37,7 @@ const Modal = ({ setModalOn, setChoice }) => {
               <h3>スクリプトを作成する</h3>
             </div>
             <div>
-              <Button>
+              <Button onClick={handleOKClick}>
                 <img src={closebtn} alt="" />
               </Button>
             </div>
@@ -289,10 +289,7 @@ const Modal = ({ setModalOn, setChoice }) => {
             </div>
           </div>
           <div className="flex justify-end gap-x-2 mt-5">
-            <Button
-              onClick={handleOKClick}
-              className=" rounded px-4 py-2 text-black  border "
-            >
+            <Button className=" rounded px-4 py-2 text-black  border ">
               キャンセル
             </Button>
             <Button className="rounded px-10 py-2  text-white bg-bgOrange ">

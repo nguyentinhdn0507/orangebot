@@ -50,8 +50,25 @@ import tiki from "./tiki.svg";
 import beamin from "./beamin.svg";
 import closeinputmodal from "./closeinputmodal.svg";
 import plusmodalinput from "./plusmodalinput.svg";
+import calendarswapright from "./calendarswapright.svg";
+import uploaddata from "./uploaddata.svg";
+import callspectrum from "./callspectrum.svg";
+import shadownspectrum from "./shadownspectrum.svg";
+import shadownunplash from "./shadownunplash.svg";
+import shadownlazada from "./shadownlazada.svg";
+import shadownbeamin from "./shadownbeamin.svg";
+import shadowntiki from "./shadowntiki.svg";
+
 export {
+  shadownbeamin,
+  shadowntiki,
+  callspectrum,
+  shadownlazada,
+  shadownunplash,
+  shadownspectrum,
   closeinputmodal,
+  uploaddata,
+  calendarswapright,
   plusmodalinput,
   unsplash,
   beamin,

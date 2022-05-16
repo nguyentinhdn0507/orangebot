@@ -1,4 +1,6 @@
 import React from "react";
+import { uploaddata } from "../../svg";
+import Button from "../button/Button";
 
 const Header = ({ textHeader }) => {
   // console.log("textHeader", textHeader);
@@ -17,26 +19,13 @@ const Header = ({ textHeader }) => {
           </div>
           <div className="flex items-center gap-x-4">
             {textHeader.buttonHeader && (
-              <button
+              <Button
                 className=" flex items-center rounded-sm
             bg-bgOrange text-white py-2 px-4 gap-x-3"
+                icon={uploaddata}
               >
-                <span>
-                  <svg
-                    width="12"
-                    height="13"
-                    viewBox="0 0 12 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 11.6667H12V13H0V11.6667ZM6.66667 2.88534V10.3333H5.33333V2.88534L1.286 6.93334L0.343333 5.99068L6 0.333344L11.6567 5.99001L10.714 6.93268L6.66667 2.88668V2.88534Z"
-                      fill="white"
-                    />
-                  </svg>
-                </span>
                 <span className="text-sm">アップロード</span>
-              </button>
+              </Button>
             )}
             <span className="text-colorForm font-extrabold">テナント名</span>
             <div className="flex items-center justify-end">
