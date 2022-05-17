@@ -11,6 +11,21 @@ body {
   border-left: 6px solid #fe8d00;
   background-color: #f0f0f0;
 }
+.centerModal {
+  top: 50px;
+  position: absolute;
+  overflow: auto;
+  left: 50%;
+  width: fit-content;
+  transform: translateX(-50%);
+  margin-bottom: 50px;
+  .modalControl {
+    width: 100%;
+    max-width: 956px;
+    overflow: auto;
+    margin-bottom: 50px;
+  }
+}
 
 // .sidebar {
 //   max-width: 208px;

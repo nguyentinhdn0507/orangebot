@@ -11,7 +11,6 @@ const Graph = () => {
   ];
   const [activeLink, setActiveLink] = useState(true);
   const [activeItem, setActiveItem] = useState(titleGraph.title);
-
   return (
     <div>
       <div className="px-4">
@@ -22,15 +21,12 @@ const Graph = () => {
                 to={item.path}
                 key={item.id}
                 className={`${
-                  activeItem === item.title
-                    ? "bg-bgOrange text-white font-bold"
-                    : ""
-                } duration-500 cursor-pointer py-2 px-5 rounded-full `}
+                  activeItem === item.title ? "bg-bgOrange text-white font-bold" : ""
+                }transition-all duration-150  cursor-pointer py-2 px-5 rounded-full `}
                 onClick={() => {
                   setActiveLink(!activeLink);
                   setActiveItem(item.title);
-                }}
-              >
+                }}>
                 {item.title}
               </NavLink>
             ))}

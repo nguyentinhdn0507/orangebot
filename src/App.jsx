@@ -31,12 +31,7 @@ function App(props) {
     <>
       <Routes>
         <Route path="/login" element={<LoginForm />}></Route>
-        <Route
-          path="/"
-          element={
-            <Main textHeader={textHeader} onChangeHeader={onChangeHeader} />
-          }
-        >
+        <Route path="/" element={<Main textHeader={textHeader} onChangeHeader={onChangeHeader} />}>
           <Route path="profile" element={<Profile />}></Route>
           <Route path="appended" element={<Appended />}></Route>
           <Route path="settingUIBot" element={<SettingUIBot />}></Route>

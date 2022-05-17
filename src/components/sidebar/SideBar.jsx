@@ -86,18 +86,15 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
       <div
         className={` ${
           !openSideBar ? "w-[208px] " : "w-10"
-        }  flex w-full flex-col gap-y-6  duration-500  bg-white drop-shadow-xl`}
-      >
+        }  flex w-full flex-col gap-y-6  duration-500  bg-white drop-shadow-xl`}>
         <div className="flex p-2 items-end  py-3 relative">
           <img src={logoOrange} alt="" />
           <span
             className={`text-bgOrange text-lg font-[600]  whitespace-nowrap ${
               openSideBar && "scale-0"
-            }`}
-          >
+            }`}>
             Orange Bot
           </span>
-
           <img
             src={!openSideBar ? closemenu : openmenu}
             alt=""
@@ -105,41 +102,38 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
             onClick={() => {
               setOpenSideBar(!openSideBar);
               onToggleSlideBar((x) => !x);
-              setShowSubMenu(false);
             }}
           />
         </div>
         <nav className="flex flex-col">
           {routes.map((item) => (
-            <div>
+            <div key={item.titleLink}>
               <NavLink
-                key={item.titleLink}
                 to={item.path}
-                onClick={() =>
+                onClick={() => {
                   onChangeHeader({
                     titleHeader: item.titleLink,
                     iconHeader: item.iconHeader,
                     buttonHeader: item.buttonHeader,
-                  })
-                }
-                className="mb-2"
-              >
+                  });
+                  {
+                    item.subMenu && setShowSubMenu(!showSubMenu);
+                  }
+                }}
+                className="mb-2">
                 <div
                   className={`flex items-center gap-x-3 text-sm p-3  relative overflow-hidden ${
                     activeLink === item.titleLink ? "bg-colorItem" : ""
                   }`}
                   onClick={() => {
-                    setShowSubMenu(false);
                     setActiveLink(item.titleLink);
-                  }}
-                >
+                    setShowSubMenu(false);
+                  }}>
                   {activeLink === item.titleLink && (
                     <div className="absolute h-full w-[6px] bg-bgOrange left-0 z-10"></div>
                   )}
                   <img src={item.icon} alt="SVG as an image"></img>
-                  <span
-                    className={`${openSideBar && "hidden"} whitespace-nowrap`}
-                  >
+                  <span className={`${openSideBar && "hidden"} whitespace-nowrap`}>
                     {item.titleLink}
                   </span>
                   {item.subMenu && !openSideBar && (
@@ -149,8 +143,7 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
                         e.preventDefault();
                         e.stopPropagation();
                         setShowSubMenu(!showSubMenu);
-                      }}
-                    >
+                      }}>
                       <img
                         src={showSubMenu ? arrowdown : arrowup}
                         alt="logo-header"
@@ -173,20 +166,23 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
                           buttonHeader: subItem.buttonHeader,
                         });
                         setActiveLink(item.titleLink);
-                        // setActiveSubMenu(subItem.titleLink);
                       }}
                       className={
                         // activeSubMenu === subItem.titleLink && "text-bgOrange"
-                        window.location.pathname.endsWith(subItem.path) &&
-                        "text-bgOrange"
-                      }
-                    >
+                        window.location.pathname.endsWith(subItem.path) && "text-bgOrange"
+                      }>
                       <div className="flex items-center gap-x-3 text-sm p-3 relative">
                         {subItem && activeLink === item.titleLink && (
                           <div className="absolute h-full w-[6px] bg-bgOrange left-0 z-10"></div>
                         )}
-                        <img src={subItem.icon} alt="" className="ml-5" />
-                        <span>{subItem.titleLink}</span>
+                        <img
+                          src={subItem.icon}
+                          alt=""
+                          className={`${openSideBar ? "ml-2" : "ml-5"}`}
+                        />
+                        <span className={`${openSideBar && "hidden"} whitespace-nowrap`}>
+                          {subItem.titleLink}
+                        </span>
                       </div>
                     </NavLink>
                   ))}
@@ -198,20 +194,15 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
         <div
           className={` flex  items-center mt-auto  border-t overflow-hidden ${
             !openSideBar ? "justify-between p-4" : "flex-col py-4"
-          }`}
-        >
-          <div className="flex gap-x-3 ">
-            <div className="w-[24px] h-[24px] object-cover ">
+          }`}>
+          <div className="flex gap-x-3 items-center">
+            <div className={`${openSideBar ? "mb-3" : ""} w-[24px] h-[24px] object-cover`}>
               <img
                 src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                 className="w-full h-full rounded-full"
               />
             </div>
-            <span
-              className={`${
-                openSideBar && "hidden"
-              } origin-left whitespace-nowrap`}
-            >
+            <span className={`${openSideBar && "hidden"} origin-left whitespace-nowrap`}>
               本田 圭佑
             </span>
           </div>
