@@ -17,6 +17,8 @@ import DialogueHistory from "./components/pages/DialogueHistory";
 import ScenarioChart from "./components/pages/ScenarioChart";
 import NumberOfAccesses from "./components/pages/NumberOfAccesses";
 import NumberOfStarts from "./components/pages/NumberOfStarts";
+import PublicRoute from "./components/publicroute/PublicRoute";
+import PrivateRoute from "./components/publicroute/PrivateRoute";
 
 function App(props) {
   // console.log("props", props);
@@ -30,21 +32,27 @@ function App(props) {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<LoginForm />}></Route>
-        <Route path="/" element={<Main textHeader={textHeader} onChangeHeader={onChangeHeader} />}>
-          <Route path="profile" element={<Profile />}></Route>
-          <Route path="appended" element={<Appended />}></Route>
-          <Route path="settingUIBot" element={<SettingUIBot />}></Route>
-          <Route path="marketing" element={<Marketing />}></Route>
-          <Route path="scenariosettings" element={<ScenarioSettings />}></Route>
-          <Route path="chart" element={<TotalChart />}>
-            <Route path="scenario" element={<Scenario />} />
-            <Route path="dialogue_history" element={<DialogueHistory />} />
-            <Route path="graph" element={<Graph />}>
-              <Route path="attachment" element={<Attachment />} />
-              <Route path="scenarioChart" element={<ScenarioChart />} />
-              <Route path="numberofaccesses" element={<NumberOfAccesses />} />
-              <Route path="numberOfStarts" element={<NumberOfStarts />} />
+        <Route element={<PublicRoute />}>
+          <Route path="/login" element={<LoginForm />}></Route>
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route
+            path="/"
+            element={<Main textHeader={textHeader} onChangeHeader={onChangeHeader} />}>
+            <Route path="profile" element={<Profile />}></Route>
+            <Route path="appended" element={<Appended />}></Route>
+            <Route path="settingUIBot" element={<SettingUIBot />}></Route>
+            <Route path="marketing" element={<Marketing />}></Route>
+            <Route path="scenariosettings" element={<ScenarioSettings />}></Route>
+            <Route path="chart" element={<TotalChart />}>
+              <Route path="scenario" element={<Scenario />} />
+              <Route path="dialogue_history" element={<DialogueHistory />} />
+              <Route path="graph" element={<Graph />}>
+                <Route path="attachment" element={<Attachment />} />
+                <Route path="scenarioChart" element={<ScenarioChart />} />
+                <Route path="numberofaccesses" element={<NumberOfAccesses />} />
+                <Route path="numberOfStarts" element={<NumberOfStarts />} />
+              </Route>
             </Route>
           </Route>
         </Route>

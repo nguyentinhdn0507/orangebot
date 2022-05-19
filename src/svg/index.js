@@ -58,8 +58,10 @@ import shadownunplash from "./shadownunplash.svg";
 import shadownlazada from "./shadownlazada.svg";
 import shadownbeamin from "./shadownbeamin.svg";
 import shadowntiki from "./shadowntiki.svg";
+import logologionform from "./logologionform.svg";
 
 export {
+  logologionform,
   shadownbeamin,
   shadowntiki,
   callspectrum,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   user,
   clip,
@@ -16,11 +16,18 @@ import {
 } from "../../svg";
 import * as assets from "../../assets";
 // console.log(user);
+
 const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
   const [activeLink, setActiveLink] = useState("プロファイル");
-  const [activeSubMenu, setActiveSubMenu] = useState("");
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [openSideBar, setOpenSideBar] = useState(false);
+  const navigator = useNavigate();
+
+  const logoutUser = () => {
+    localStorage.removeItem("auth");
+    console.log("heeeee");
+    navigator("/login");
+  };
   const routes = [
     {
       path: "profile",
@@ -206,8 +213,7 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
               本田 圭佑
             </span>
           </div>
-          <div className="flex-shrink-0 "
-          onClick={()=>{}}>
+          <div className="flex-shrink-0 cursor-pointer " onClick={logoutUser}>
             <img src={logout} alt="" />
           </div>
         </div>

@@ -12,6 +12,8 @@ const InputField = ({
   placeholder,
   styleInput,
   flexfull,
+  onChange,
+  value,
   ...props
 }) => {
   return (
@@ -37,6 +39,8 @@ const InputField = ({
           className={`border  w-full ${classNameInput}`}
           type={type}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
         />
       </div>
     </div>

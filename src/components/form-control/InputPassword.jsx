@@ -11,23 +11,18 @@ const InputPassword = ({
   showEyes = true,
   placeholder,
   onclickRightIcon,
+  onChange,
+  value,
   ...props
 }) => {
   const [togglePassword, setTogglePassword] = useState(true);
 
   return (
     <div className={className}>
-      <label
-        className="text-sm text-colorForm"
-        htmlFor={props.id || props.name}
-      >
+      <label className="text-sm text-colorForm" htmlFor={props.id || props.name}>
         {label}
       </label>
-      <div
-        className={`flex  items-center ${
-          iconRight ? "justify-end" : "justify-start"
-        }`}
-      >
+      <div className={`flex  items-center ${iconRight ? "justify-end" : "justify-start"}`}>
         {icon && (
           <div className="flex items-center absolute z-10">
             <div>
@@ -41,10 +36,7 @@ const InputPassword = ({
               )}
             </div>
 
-            <div
-              className={`${styleSpan} cursor-pointer`}
-              onClick={() => onclickRightIcon?.()}
-            >
+            <div className={`${styleSpan} cursor-pointer`} onClick={() => onclickRightIcon?.()}>
               <img src={icon} />
             </div>
           </div>
@@ -53,6 +45,8 @@ const InputPassword = ({
           className={`border  w-full ${classNameInput}`}
           type={togglePassword ? "password" : "text"}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
         />
       </div>
     </div>
