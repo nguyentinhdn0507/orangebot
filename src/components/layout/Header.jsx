@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { uploaddata } from "../../svg";
 import Button from "../button/Button";
+import axios from "axios";
 
 const Header = ({ textHeader }) => {
-  // console.log("textHeader", textHeader);
-  // const formData = new FormData();
-
-  // const file = e.target.files[0];
-
-  // formData.append("file", file);
-
-  // console.log(e.target.files[0]);
-  // const handleUploadFile = () => {};
+  const handleUploadFile = (e) => {
+    const formData = new FormData();
+    const file = e.target.files[0];
+    console.log("file", file);
+    formData.append("file", file);
+    axios
+      .post("http://localhost:9000/datafile", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log("Succes", res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <header className=" w-full  bg-white shadow-md  ">
@@ -34,11 +44,12 @@ const Header = ({ textHeader }) => {
                     type="file"
                     id="upload-file"
                     style={{ display: "none" }}
-                    // onChange={handleUploadFile}
+                    onChange={handleUploadFile}
                   />
                 </Button>
               </>
             )}
+            {/* <button onClick={handleButton}> AXY</button> */}
             <span className="text-colorForm font-extrabold">テナント名</span>
             <div className="flex items-center justify-end">
               <input
