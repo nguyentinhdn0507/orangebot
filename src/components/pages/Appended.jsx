@@ -4,46 +4,54 @@ import InputCheckbox from "../form-control/InputCheckbox";
 import { formatDate, timeSince, formatSize } from "../../format/index";
 import axios from "axios";
 import { trash } from "../../svg";
-const Appended = () => {
+
+const Appended = ({ shouldGetData }) => {
   const [data, setData] = useState([]);
-  const handleFetchData = useRef();
+  const [selectAll, setSelectAll] = useState(true);
+  const [selectItem, setSelectItem] = useState(false);
   const url = "http://localhost:9000/datafile";
-  handleFetchData.current = async () => {
-    // setLoading(true);
+
+  const handleFetchData = async () => {
     try {
       const response = await axios.get(url);
-      console.log("Có Dữ liệu :", response);
-      console.log(response.data);
+      // console.log("Có Dữ liệu :", response);
+      // console.log(response.data);
       setData(response?.data || []);
-    
     } catch (error) {
       console.log("error", error);
-      
     }
   };
   useEffect(() => {
-    handleFetchData.current();
-  }, []);
+    handleFetchData();
+  }, [shouldGetData]);
+
   const handelDeleteFile = (id) => {
     const item = data.filter((item) => item._id !== id);
     setData(item);
   };
-  // useEffect(() => {
-  //   const url = "http://localhost:9000/datafile";
-  //   const fetchData = () => {
-  //     axios
-  //       .get(url)
-  //       .then((res) => {
-  //         console.log("data", setData(res.data));
-  //       })
-  //       .catch((err) => {
-  //         console.log("err", err);
-  //       });
-  //   };
-  //   fetchData();
-  // }, []);
 
-  console.log("data", data);
+  const handleSelectAll = () => {
+    const newData = [...data].map((x) => {
+      return {
+        ...x,
+        status: selectAll ? true : false,
+      };
+    });
+    setSelectAll(!selectAll);
+    setData(newData);
+  };
+
+  const handleSelectItem = (id) => {
+    console.log("object");
+    // const index = [...data].findIndex((item) => item._id === id);
+    // console.log(index);
+    // setSelectItem((x) => !x);
+    // setSelectAll();
+    // const newData = [...data];
+    // newData[index].status = !newData[index].status;
+    // setData(newData);
+  };
+
   return (
     <div className="px-10">
       <div className="flex gap-x-5">
@@ -143,7 +151,7 @@ const Appended = () => {
           <thead className="text-xs text-gray-700 uppercase bg-colorTable dark:bg-gray-700 dark:text-gray-400">
             <tr className="text-left">
               <th className="px-2 py-4 w-8">
-                <InputCheckbox />
+                <InputCheckbox onChange={handleSelectAll} />
               </th>
               <th className="m-w-[250px]">
                 <div className="w-full flex items-center justify-between">
@@ -183,7 +191,10 @@ const Appended = () => {
             {data.map((item, index) => (
               <tr key={index}>
                 <td className="px-2">
-                  <InputCheckbox />
+                  <InputCheckbox
+                    checked={item.status}
+                    onChange={() => handleSelectItem(item._id)}
+                  />
                 </td>
                 <td scope="row" className=" font-medium dark:text-white whitespace-nowrap py-4">
                   <div className="text-gray-900 flex items-center gap-x-5">

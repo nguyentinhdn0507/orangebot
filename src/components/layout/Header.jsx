@@ -3,7 +3,7 @@ import { uploaddata } from "../../svg";
 import Button from "../button/Button";
 import axios from "axios";
 
-const Header = ({ textHeader }) => {
+const Header = ({ textHeader, getData }) => {
   const handleUploadFile = (e) => {
     const formData = new FormData();
     const file = e.target.files[0];
@@ -21,6 +21,7 @@ const Header = ({ textHeader }) => {
       .catch((err) => {
         console.log(err);
       });
+    getData?.();
   };
   return (
     <>
@@ -30,7 +31,7 @@ const Header = ({ textHeader }) => {
             <img src={textHeader.iconHeader} className="inline w-[32px] h-[32px]" />
             <span className="text-slate-900 font-black text-2xl">{textHeader.titleHeader}</span>
           </div>
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center gap-x-4 relative">
             {textHeader.buttonHeader && (
               <>
                 <Button
@@ -50,7 +51,7 @@ const Header = ({ textHeader }) => {
               </>
             )}
             {/* <button onClick={handleButton}> AXY</button> */}
-            <span className="text-colorForm font-extrabold">テナント名</span>
+            <span className="text-colorForm font-extrabold ">テナント名</span>
             <div className="flex items-center justify-end">
               <input
                 type="text"

@@ -35,7 +35,7 @@ const BarChart = () => {
         label: "",
         fill: true,
         tension: 0.4,
-        barThickness: 20,
+        barThickness: 10,
       },
     ],
   });

@@ -42,7 +42,7 @@ const InputPassword = ({
           </div>
         )}
         <input
-          className={`border  w-full ${classNameInput}`}
+          className={`border w-full ${classNameInput}`}
           type={togglePassword ? "password" : "text"}
           placeholder={placeholder}
           value={value}

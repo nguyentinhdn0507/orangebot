@@ -26,9 +26,15 @@ function App(props) {
     titleHeader: "プロファイル",
     iconHeader: userImg,
   });
+  const [shouldGetData, setShouldGetData] = useState(false);
   const onChangeHeader = (value) => {
     setText(value);
   };
+
+  const getData = () => {
+    setShouldGetData(true);
+  };
+
   return (
     <>
       <Routes>
@@ -38,9 +44,11 @@ function App(props) {
         <Route element={<PrivateRoute />}>
           <Route
             path="/"
-            element={<Main textHeader={textHeader} onChangeHeader={onChangeHeader} />}>
+            element={
+              <Main textHeader={textHeader} getData={getData} onChangeHeader={onChangeHeader} />
+            }>
             <Route path="profile" element={<Profile />}></Route>
-            <Route path="appended" element={<Appended />}></Route>
+            <Route path="appended" element={<Appended shouldGetData={shouldGetData} />}></Route>
             <Route path="settingUIBot" element={<SettingUIBot />}></Route>
             <Route path="marketing" element={<Marketing />}></Route>
             <Route path="scenariosettings" element={<ScenarioSettings />}></Route>

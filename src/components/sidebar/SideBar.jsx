@@ -92,7 +92,7 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
     <div className="flex fixed h-full">
       <div
         className={` ${
-          !openSideBar ? "w-[208px] " : "w-10"
+          !openSideBar ? "w-[208px] " : "w-12"
         }  flex w-full flex-col gap-y-6  duration-500  bg-white drop-shadow-xl`}>
         <div className="flex p-2 items-end  py-3 relative">
           <img src={logoOrange} alt="" />
@@ -145,7 +145,7 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
                   </span>
                   {item.subMenu && !openSideBar && (
                     <div
-                      className=" flex justify-end ml-auto p-2"
+                      className=" flex justify-end ml-auto "
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
