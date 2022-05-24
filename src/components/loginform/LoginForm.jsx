@@ -69,7 +69,7 @@ const LoginForm = () => {
             value={userPassword}
             onChange={(e) => setUserPassword(e.target.value)}
           />
-          <div className="flex justify-between mb-6">
+          <div className="flex justify-between items-center mb-6">
             <InputCheckbox
               className="transition-all mr-1 text-sm flex items-center"
               name="rememberpassword"

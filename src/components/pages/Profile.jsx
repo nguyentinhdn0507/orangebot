@@ -5,9 +5,20 @@ import { edit, editavatar, updateedit, savefile } from "../../svg/index";
 import InputPassword from "../form-control/InputPassword";
 const Profile = () => {
   const [formEdit, setFormEdit] = useState(false);
-  const toggleEditForm = () => {
+  const [changeAvatar, setChangeAvatar] = useState(false);
+  const handleEditPassword = () => {
     console.log("Open Form");
     setFormEdit(!formEdit);
+  };
+  const cancelEditPassword = () => {
+    console.log("Open Form");
+    setFormEdit(!formEdit);
+  };
+  const handleChangeAvatar = () => {
+    setChangeAvatar(!changeAvatar);
+  };
+  const CancelEditAvatar = () => {
+    setChangeAvatar(!changeAvatar);
   };
   const [userDetail, setUserDetail] = useState("本田 圭佑");
   return (
@@ -27,7 +38,7 @@ const Profile = () => {
                 </span>
               </div>
             </div>
-            {formEdit ? (
+            {changeAvatar ? (
               <div className="w-[60%] ">
                 {" "}
                 <InputField
@@ -39,7 +50,7 @@ const Profile = () => {
               <p className="mt-1">本田 圭佑</p>
             )}
             {/* <p className="mt-1">本田 圭佑</p> */}
-            {formEdit ? (
+            {changeAvatar ? (
               <div className="w-[60%]">
                 <InputField classNameInput="outline-none px-1 py-[2px]" />
               </div>
@@ -48,9 +59,11 @@ const Profile = () => {
             )}
           </div>
         </div>
-        {formEdit ? (
+        {changeAvatar ? (
           <div className="flex gap-x-3">
-            <Button className="text-red-400">キャンセル</Button>
+            <Button onClick={CancelEditAvatar} className="text-red-400">
+              キャンセル
+            </Button>
             <Button className="flex items-center py-[1px] px-2  bg-bgOrange text-white">
               <span className="mr-2">
                 <img src={savefile} alt="" />
@@ -60,7 +73,7 @@ const Profile = () => {
           </div>
         ) : (
           <Button
-            onClick={toggleEditForm}
+            onClick={handleChangeAvatar}
             className="bg-bgOrange  flex items-center  py-[1px] px-2 rounded-sm text-white mb-2">
             <img className="mr-2" src={updateedit} alt="" />
             編集
@@ -72,7 +85,7 @@ const Profile = () => {
         <form action="" className="flex flex-col ">
           <InputField
             label="電子メールアドレス"
-            className="mb-6"
+            className="mb-6 relative"
             classNameInput="focus:outline-slate-200 px-3 py-2  rounded-sm "
             iconRight
             icon={edit}
@@ -84,14 +97,14 @@ const Profile = () => {
 
           <InputPassword
             label="パスワード"
-            className="mb-0"
+            className="mb-0 relative"
             classNameInput="focus:outline-slate-200 px-3 py-2 rounded-sm"
             styleSpan="bg-colorItem p-3.5 rounded-r-sm border-l"
             iconRight
             icon={edit}
             styleInput="p-[14px] z-10 border-l"
             placeholder="Enter Your Password"
-            onclickRightIcon={toggleEditForm}
+            onclickRightIcon={handleEditPassword}
           />
           {formEdit && (
             <>
@@ -99,7 +112,7 @@ const Profile = () => {
                 <InputPassword classNameInput="px-3 py-2 rounded-sm outline-none" />
                 <div className="flex gap-x-3 mt-2">
                   <InputPassword
-                    className="w-full"
+                    className="w-full "
                     classNameInput="px-3 py-2 rounded-sm outline-none"
                   />
                   <InputPassword
@@ -108,7 +121,9 @@ const Profile = () => {
                   />
                 </div>
                 <div className="flex justify-end mt-3 gap-x-3">
-                  <Button className="text-red-400">キャンセル</Button>
+                  <Button onClick={cancelEditPassword} className="text-red-400">
+                    キャンセル
+                  </Button>
                   <Button className="bg-bgOrange text-white rounded-sm flex items-center  p-[1px] px-2">
                     <img className="mr-2" src={savefile} alt="" /> 保存
                   </Button>

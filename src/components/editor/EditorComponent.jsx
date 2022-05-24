@@ -1,18 +1,27 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-const EditorComponent = () => {
+const EditorComponent = (props) => {
+  console.log(props);
+  const { active } = props;
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
       console.log(editorRef.current.getContent());
     }
   };
+  const [contentEditor, setContentEditor] = useState(active.content);
+  const handleEditorChange = (content, editor) => {
+    props.setContent(content);
+    setContentEditor(content);
+  };
   return (
     <>
       <Editor
+        value={contentEditor}
+        onEditorChange={handleEditorChange}
         onInit={(evt, editor) => (editorRef.current = editor)}
-        initialValue="<p>This is the initial content of the editor.</p>"
+        initialValue={props.active.content}
         init={{
           height: 500,
           menubar: false,

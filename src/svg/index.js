@@ -59,8 +59,26 @@ import shadownlazada from "./shadownlazada.svg";
 import shadownbeamin from "./shadownbeamin.svg";
 import shadowntiki from "./shadowntiki.svg";
 import logologionform from "./logologionform.svg";
+import filtertable from "./filtertable.svg";
+import fileimg from "./fileimg.svg";
+import filedoc from "./filedoc.svg";
+import filevideo from "./filevideo.svg";
+import filezip from "./filezip.svg";
+import iconfiledoc from "./iconfiledoc.svg";
+import iconfilevideo from "./iconfilevideo.svg";
+import iconfilezip from "./iconfilezip.svg";
+import iconfileimg from "./iconfileimg.svg";
 
 export {
+  iconfilezip,
+  iconfileimg,
+  iconfilevideo,
+  iconfiledoc,
+  filezip,
+  filevideo,
+  filedoc,
+  fileimg,
+  filtertable,
   logologionform,
   shadownbeamin,
   shadowntiki,
