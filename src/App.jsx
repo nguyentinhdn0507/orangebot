@@ -27,9 +27,9 @@ function App(props) {
     iconHeader: userImg,
   });
   const [shouldGetData, setShouldGetData] = useState(false);
-  const onChangeHeader = (value) => {
-    setText(value);
-  };
+  // const onChangeHeader = (value) => {
+  //   setText(value);
+  // };
 
   const getData = () => {
     setShouldGetData(true);
@@ -42,11 +42,10 @@ function App(props) {
           <Route path="/login" element={<LoginForm />}></Route>
         </Route>
         <Route element={<PrivateRoute />}>
+          {/* onChangeHeader={onChangeHeader} */}
           <Route
             path="/"
-            element={
-              <Main textHeader={textHeader} getData={getData} onChangeHeader={onChangeHeader} />
-            }>
+            element={<Main textHeader={textHeader} getData={getData} onChangeHeader={setText} />}>
             <Route path="profile" element={<Profile />}></Route>
             <Route path="appended" element={<Appended shouldGetData={shouldGetData} />}></Route>
             <Route path="settingUIBot" element={<SettingUIBot />}></Route>

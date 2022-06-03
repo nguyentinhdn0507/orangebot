@@ -25,7 +25,6 @@ const SideBar = ({ onChangeHeader, onToggleSlideBar }) => {
 
   const logoutUser = () => {
     localStorage.removeItem("auth");
-    console.log("heeeee");
     navigator("/login");
   };
   const routes = [

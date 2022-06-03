@@ -20,8 +20,8 @@ const Appended = ({ shouldGetData }) => {
   const [data, setData] = useState([]);
   const [selectAll, setSelectAll] = useState(true);
   const [selectItem, setSelectItem] = useState(false);
-  const url = "https://orangebot-backend.herokuapp.com/datafile";
-
+  const url = "https://orangebot-backend.herokuapp.com/data";
+  // const url = "http://localhost:9000/datafile";
   const handleFetchData = async () => {
     try {
       const response = await axios.get(url);
@@ -32,6 +32,9 @@ const Appended = ({ shouldGetData }) => {
       console.log("error", error);
     }
   };
+  useEffect(() => {
+    handleFetchData();
+  }, [shouldGetData]);
   const checkType = (type) => {
     switch (type) {
       case "text/plain":
@@ -46,9 +49,6 @@ const Appended = ({ shouldGetData }) => {
         break;
     }
   };
-  useEffect(() => {
-    handleFetchData();
-  }, [shouldGetData]);
 
   const handelDeleteFile = (id) => {
     const item = data.filter((item) => item._id !== id);

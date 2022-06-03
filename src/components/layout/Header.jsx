@@ -4,13 +4,15 @@ import Button from "../button/Button";
 import axios from "axios";
 
 const Header = ({ textHeader, getData }) => {
+  const url = "https://orangebot-backend.herokuapp.com/data";
+  // const url = "http://localhost:9000/datafile";
   const handleUploadFile = (e) => {
     const formData = new FormData();
     const file = e.target.files[0];
     console.log("file", file);
     formData.append("file", file);
     axios
-      .post("http://localhost:9000/datafile", formData, {
+      .post(url, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
