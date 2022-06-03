@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { databaseImg } from "../../assets";
 import InputCheckbox from "../form-control/InputCheckbox";
 import { formatDate, timeSince, formatSize } from "../../format/index";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import axios from "axios";
 import {
   filedoc,
@@ -17,24 +18,13 @@ import {
 } from "../../svg";
 
 const Appended = ({ shouldGetData }) => {
-  const [data, setData] = useState([]);
   const [selectAll, setSelectAll] = useState(true);
   const [selectItem, setSelectItem] = useState(false);
   const url = "https://orangebot-backend.herokuapp.com/data";
   // const url = "http://localhost:9000/datafile";
-  const handleFetchData = async () => {
-    try {
-      const response = await axios.get(url);
-      // console.log("Có Dữ liệu :", response);
-      console.log(response.data);
-      setData(response?.data || []);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-  useEffect(() => {
-    handleFetchData();
-  }, [shouldGetData]);
+  const { isFetching, error, data } = useQuery("gethuhu", () => axios.get(url));
+  console.log("data", data);
+
   const checkType = (type) => {
     switch (type) {
       case "text/plain":
@@ -158,7 +148,7 @@ const Appended = ({ shouldGetData }) => {
           </thead>
           <tbody>
             <tr className=" dark:bg-gray-800 dark:border-gray-700 odd:bg-white text-left even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"></tr>
-            {data.map((item, index) => (
+            {data?.data.map((item, index) => (
               <tr key={index}>
                 <td className="px-2">
                   <InputCheckbox

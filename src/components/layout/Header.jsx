@@ -2,29 +2,36 @@ import React, { useEffect, useState } from "react";
 import { uploaddata, user } from "../../svg";
 import Button from "../button/Button";
 import axios from "axios";
-
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { uploadFile } from "../../api/uploadfile";
 const Header = ({ textHeader, getData }) => {
   const url = "https://orangebot-backend.herokuapp.com/data";
+  const queryClient = useQueryClient();
   // const url = "http://localhost:9000/datafile";
-  const handleUploadFile = (e) => {
-    const formData = new FormData();
-    const file = e.target.files[0];
-    console.log("file", file);
-    formData.append("file", file);
-    axios
-      .post(url, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        console.log("Succes", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    getData?.();
+  const upload = async (data) => {
+    const result = await axios.post(url, data);
+    return result;
   };
+  const mutationUpdate = useMutation(upload, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("gethuhu");
+    },
+  });
+  const handleUploadFile = async (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    console.log(file);
+    let result = await uploadFile(file);
+    mutationUpdate.mutate({
+      file: { name: file.name },
+      type: file.type,
+      datecreate: new Date(),
+      dateupdate: new Date(),
+      size: file.size,
+      link: result.data,
+    });
+  };
+
   return (
     <>
       <header className=" w-full  bg-white shadow-md  ">

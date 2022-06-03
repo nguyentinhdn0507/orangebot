@@ -1,4 +1,5 @@
 import LoginForm from "./components/loginform/LoginForm";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./components/pages/Profile";
 import Appended from "./components/pages/Appended";
@@ -34,37 +35,39 @@ function App(props) {
   const getData = () => {
     setShouldGetData(true);
   };
-
+  const queryClient = new QueryClient();
   return (
     <>
-      <Routes>
-        <Route element={<PublicRoute />}>
-          <Route path="/login" element={<LoginForm />}></Route>
-        </Route>
-        <Route element={<PrivateRoute />}>
-          {/* onChangeHeader={onChangeHeader} */}
-          <Route
-            path="/"
-            element={<Main textHeader={textHeader} getData={getData} onChangeHeader={setText} />}>
-            <Route path="profile" element={<Profile />}></Route>
-            <Route path="appended" element={<Appended shouldGetData={shouldGetData} />}></Route>
-            <Route path="settingUIBot" element={<SettingUIBot />}></Route>
-            <Route path="marketing" element={<Marketing />}></Route>
-            <Route path="scenariosettings" element={<ScenarioSettings />}></Route>
-            <Route path="chart" element={<TotalChart />}>
-              <Route path="scenario" element={<Scenario />} />
-              <Route path="dialogue_history" element={<DialogueHistory />} />
-              <Route path="graph" element={<Graph />}>
-                <Route path="attachment" element={<Attachment />} />
-                <Route path="scenarioChart" element={<ScenarioChart />} />
-                <Route path="numberofaccesses" element={<NumberOfAccesses />} />
-                <Route path="numberOfStarts" element={<NumberOfStarts />} />
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route element={<PublicRoute />}>
+            <Route path="/login" element={<LoginForm />}></Route>
+          </Route>
+          <Route element={<PrivateRoute />}>
+            {/* onChangeHeader={onChangeHeader} */}
+            <Route
+              path="/"
+              element={<Main textHeader={textHeader} getData={getData} onChangeHeader={setText} />}>
+              <Route path="profile" element={<Profile />}></Route>
+              <Route path="appended" element={<Appended shouldGetData={shouldGetData} />}></Route>
+              <Route path="settingUIBot" element={<SettingUIBot />}></Route>
+              <Route path="marketing" element={<Marketing />}></Route>
+              <Route path="scenariosettings" element={<ScenarioSettings />}></Route>
+              <Route path="chart" element={<TotalChart />}>
+                <Route path="scenario" element={<Scenario />} />
+                <Route path="dialogue_history" element={<DialogueHistory />} />
+                <Route path="graph" element={<Graph />}>
+                  <Route path="attachment" element={<Attachment />} />
+                  <Route path="scenarioChart" element={<ScenarioChart />} />
+                  <Route path="numberofaccesses" element={<NumberOfAccesses />} />
+                  <Route path="numberOfStarts" element={<NumberOfStarts />} />
+                </Route>
               </Route>
             </Route>
           </Route>
-        </Route>
-        <Route path="*" element={<PageNotFound />}></Route>
-      </Routes>
+          <Route path="*" element={<PageNotFound />}></Route>
+        </Routes>
+      </QueryClientProvider>
     </>
   );
 }
